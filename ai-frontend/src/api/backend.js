@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // API URL (Production + Development support)
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+const API_URL = "https://skillsync-cyf1.onrender.com" || "http://127.0.0.1:8000";
 
 // Debug logs (remove later if needed)
 console.log("[Backend Config] API URL:", API_URL);
@@ -39,6 +39,7 @@ export const generateCoverLetter = async (data) =>
       experience_years: parseInt(data.experienceYears) || 0
     })
   );
+
 
 export const getInterviewPrep = async (data) =>
   handleRequest(API.post("/interview-prep", data));
