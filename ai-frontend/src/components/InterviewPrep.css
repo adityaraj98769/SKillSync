@@ -1,395 +1,193 @@
+/* ── Interview Prep ── */
 .interview-prep-page {
-  padding: 30px;
-  max-width: 1200px;
+  padding: 2rem 2.5rem;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .prep-form-card {
-  background: white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
+  background: var(--bg-primary);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .prep-form-card h2 {
-  font-size: 1.4rem;
-  color: #1e293b;
-  margin-bottom: 25px;
+  font-family: var(--font-display);
+  font-size: 1rem;
   font-weight: 700;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
 }
 
 .prep-form-card textarea {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #e2e8f0;
+  padding: 0.6rem 0.875rem;
+  border: 0.5px solid var(--border);
   border-radius: 8px;
-  font-size: 14px;
-  font-family: inherit;
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-primary);
   resize: vertical;
-  transition: border-color 0.2s;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  line-height: 1.55;
 }
-
 .prep-form-card textarea:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: var(--border-dark);
+  box-shadow: 0 0 0 3px rgba(13,13,12,0.06);
 }
 
 .prep-btn {
   width: 100%;
-  padding: 14px;
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-  color: white;
+  padding: 0.75rem;
+  background: var(--text-primary);
+  color: var(--bg-primary);
   border: none;
   border-radius: 8px;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  gap: 8px;
+  transition: background 0.15s;
+}
+.prep-btn:hover:not(:disabled) { background: var(--text-secondary); }
+.prep-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.prep-results { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.questions-section, .tips-section {
+  background: var(--bg-primary);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
 }
 
-.prep-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+.questions-section h2, .tips-section h2 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
 }
 
-.prep-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.prep-results {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.questions-section {
-  background: white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.questions-section h2 {
-  font-size: 1.3rem;
-  color: #1e293b;
-  margin-bottom: 20px;
-}
-
-.questions-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+.questions-list { display: flex; flex-direction: column; gap: 0.5px; overflow: hidden; border-radius: 8px; border: 0.5px solid var(--border); }
 
 .question-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  padding: 0;
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all 0.2s;
+  background: var(--bg-primary);
+  border: none;
   cursor: pointer;
+  transition: background 0.15s;
 }
-
-.question-card:hover {
-  border-color: #3b82f6;
-  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.1);
-}
+.question-card:hover { background: var(--bg-secondary); }
 
 .question-header {
   display: flex;
-  gap: 15px;
-  padding: 15px;
-  background: #f8fafc;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
   align-items: center;
+  border-bottom: 0.5px solid var(--border);
 }
-
-.question-header:hover {
-  background: #f1f5f9;
-}
+.question-card:last-child .question-header:not(:has(+.question-full)) { border-bottom: none; }
 
 .question-number {
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: white;
-  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  background: var(--bg-secondary);
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 14px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-secondary);
 }
 
 .question-text {
   flex: 1;
-  color: #1e293b;
-  line-height: 1.6;
-  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.55;
+  font-size: 0.875rem;
 }
 
 .expand-icon {
   flex-shrink: 0;
-  color: #64748b;
-  transition: transform 0.3s;
-  font-size: 12px;
+  color: var(--text-tertiary);
+  font-size: 0.65rem;
+  transition: transform 0.2s;
 }
-
-.expand-icon.expanded {
-  transform: rotate(180deg);
-  color: #3b82f6;
-}
+.expand-icon.expanded { transform: rotate(180deg); color: var(--text-secondary); }
 
 .question-full {
-  padding: 20px 15px;
-  background: white;
-  border-top: 1px solid #e2e8f0;
-  color: #475569;
-  line-height: 1.8;
-  font-size: 14px;
+  padding: 0.875rem 1rem 0.875rem 3rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  line-height: 1.75;
+  font-size: 0.845rem;
   white-space: pre-wrap;
   word-wrap: break-word;
+  border-top: 0.5px solid var(--border);
 }
 
 .no-questions {
-  padding: 30px;
+  padding: 2rem;
   text-align: center;
-  background: #f8fafc;
+  background: var(--bg-secondary);
   border-radius: 8px;
-  color: #64748b;
-}
-
-.tips-section {
-  background: white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.tips-section h2 {
-  font-size: 1.3rem;
-  color: #1e293b;
-  margin-bottom: 20px;
+  color: var(--text-tertiary);
+  font-size: 0.845rem;
 }
 
 .tips-content {
-  background: #f8fafc;
-  padding: 20px;
+  background: var(--bg-secondary);
   border-radius: 8px;
-  line-height: 1.8;
+  padding: 1rem 1.25rem;
 }
 
 .tips-content p {
-  color: #475569;
-  margin: 10px 0;
-  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 8px 0;
+  font-size: 0.845rem;
+  line-height: 1.65;
 }
 
 .advice-section {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  border-radius: 12px;
-  padding: 20px;
+  background: var(--bg-secondary);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
 }
 
 .advice-section h3 {
-  color: #1e40af;
-  margin-bottom: 15px;
-  font-size: 1.1rem;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 0.875rem;
 }
 
-.advice-section ul {
-  list-style: none;
-  padding: 0;
-}
+.advice-section ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
 
 .advice-section li {
-  padding: 8px 0 8px 25px;
-  color: #1e3a8a;
-  font-size: 14px;
+  padding: 0 0 0 1.125rem;
+  color: var(--text-secondary);
+  font-size: 0.845rem;
   line-height: 1.6;
   position: relative;
 }
+.advice-section li::before { content: "—"; position: absolute; left: 0; color: var(--text-tertiary); }
 
-.advice-section li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #3b82f6;
-  font-weight: bold;
-}
-
-@media (max-width: 1024px) {
-  .interview-prep-page {
-    padding: 20px 15px;
-  }
-  
-  .form-row {
-    gap: 15px;
-  }
-  
-  .prep-form-card {
-    padding: 25px 20px;
-  }
-  
-  .questions-section,
-  .tips-section {
-    padding: 25px 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .interview-prep-page {
-    padding: 12px;
-  }
-  
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-  
-  .prep-form-card {
-    padding: 16px;
-  }
-  
-  .prep-form-card h2 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .questions-section,
-  .tips-section {
-    padding: 16px;
-  }
-  
-  .questions-section h2,
-  .tips-section h2 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .question-header {
-    padding: 11px;
-    gap: 9px;
-  }
-  
-  .question-text {
-    font-size: 13px;
-  }
-  
-  .question-full {
-    padding: 13px;
-    font-size: 12.5px;
-    line-height: 1.5;
-  }
-}
-
-@media (max-width: 480px) {
-  .interview-prep-page {
-    padding: 5px;
-  }
-  
-  .prep-form-card {
-    padding: 6px;
-    border-radius: 10px;
-  }
-  
-  .prep-form-card h2 {
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .form-group {
-    margin-bottom: 0.5rem;
-  }
-  
-  .form-group label {
-    font-size: 0.7rem;
-    margin-bottom: 0.2rem;
-  }
-  
-  .form-group input,
-  .prep-form-card textarea {
-    font-size: 0.7rem;
-    padding: 0.4rem;
-    border-radius: 6px;
-  }
-  
-  .prep-btn {
-    font-size: 0.7rem;
-    padding: 0.5rem;
-    border-radius: 6px;
-  }
-  
-  .questions-section,
-  .tips-section {
-    padding: 6px;
-  }
-  
-  .questions-section h2,
-  .tips-section h2 {
-    font-size: 0.8rem;
-    margin-bottom: 0.4rem;
-  }
-  
-  .question-card {
-    padding: 0.5rem;
-    margin-bottom: 0.4rem;
-    border-radius: 8px;
-  }
-  
-  .question-header {
-    padding: 0.4rem;
-    gap: 0.35rem;
-  }
-  
-  .question-number {
-    width: 22px;
-    height: 22px;
-    font-size: 0.65rem;
-  }
-  
-  .question-text {
-    font-size: 0.7rem;
-    line-height: 1.3;
-  }
-  
-  .question-full {
-    padding: 0.5rem;
-    font-size: 0.65rem;
-    line-height: 1.35;
-  }
-  
-  .tips-card {
-    padding: 0.5rem;
-    margin-bottom: 0.4rem;
-    border-radius: 8px;
-  }
-  
-  .tips-card h3 {
-    font-size: 0.75rem;
-    margin-bottom: 0.25rem;
-  }
-  
-  .tips-card p,
-  .tips-card ul {
-    font-size: 0.65rem;
-    line-height: 1.35;
-  }
-}
+@media (max-width: 1024px) { .interview-prep-page { padding: 1.5rem; } }
+@media (max-width: 768px) { .interview-prep-page { padding: 1rem; } .form-row { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .interview-prep-page { padding: 0.75rem; } .prep-form-card, .questions-section, .tips-section { padding: 0.875rem; } }
