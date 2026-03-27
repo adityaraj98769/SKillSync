@@ -22,9 +22,9 @@ A **production-ready, full-stack web application** that combines classical algor
 
 **🚀 Try it now - No installation required!**
 
-- **Live App**: https://job-application-assistant-one.vercel.app
-- **API Backend**: https://job-assistant-application-api.onrender.com
-- **API Docs**: https://job-assistant-application-api.onrender.com/docs
+- **Live App**: https://s-kill-sync.vercel.app
+- **API Backend**: https://skillsync-cyf1.onrender.com
+
 
 *Note: Free tier - first request may take 30 seconds to wake up*
 
@@ -317,7 +317,7 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 
 **Quick Start:**
 ```bash
-git clone https://github.com/anurag-singh12219/job_application_assistant.git
+git clone https://github.com/adityaraj98769/SKillSync.git
 cd job_application_assistant
 git checkout -b feature/your-feature
 # Make changes...
@@ -380,8 +380,8 @@ If this project helped you, please:
 
 ## 👨‍💻 Author
 
-**Anurag Singh**
-- GitHub: [@anurag-singh12219](https://github.com/anurag-singh12219)
+**Adityaraj Dwivedi**
+- GitHub: [@adityaraj98769](https://github.com/adityaraj98769/SKillSync)
 - GenAI Training Program Participant
 
 ---
@@ -401,7 +401,7 @@ If this project helped you, please:
 
 ### Made with ❤️ for job seekers worldwide
 
-**[GitHub](https://github.com/anurag-singh12219/job_application_assistant)** • **[Issues](https://github.com/anurag-singh12219/job_application_assistant/issues)** • **[Discussions](https://github.com/anurag-singh12219/job_application_assistant/discussions)**
+**[GitHub](https://github.com/adityaraj98769/SKillSync)** • **[Issues](https://github.com/adityaraj98769/SKillSync/issues)** • **[Discussions](https://github.com/adityaraj98769/SKillSync/discussions)**
 
 ⭐ If you find this project helpful, please star it! ⭐
 

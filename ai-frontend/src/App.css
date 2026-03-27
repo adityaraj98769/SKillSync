@@ -506,3 +506,87 @@
    DARK / LIGHT PASS-THROUGH
    (colors live in theme.css via CSS variables)
    ============================================================ */
+
+   /* ============================================================
+   HERO ANIMATIONS — add to App.css (or @import separately)
+   ============================================================ */
+
+/* ── 1. Per-word slide-up reveal (clip-path mask trick) ── */
+@keyframes wordSlideUp {
+  from {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.slide-word-inner {
+  display: inline-block;
+  animation: wordSlideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── 2. Scramble line — monospace feel + faint glow ── */
+.hero-scramble {
+  font-family: "Courier New", "Courier", monospace;
+  letter-spacing: 0.02em;
+  /* subtle gradient shimmer over the scramble */
+  background: linear-gradient(
+    90deg,
+    var(--text-muted, #94a3b8) 0%,
+    var(--text-primary, #e2e8f0) 40%,
+    var(--text-muted, #94a3b8) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerSweep 2.5s linear infinite;
+  animation-delay: 0.8s;
+}
+
+@keyframes shimmerSweep {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* ── 3. Fade-in (eyebrow) ── */
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-fade-in {
+  opacity: 0;
+  animation: heroFadeIn 0.6s ease forwards;
+}
+
+/* ── 4. Slide-up fade (sub-text, CTAs) ── */
+@keyframes heroSlideUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-slide-up {
+  opacity: 0;
+  animation: heroSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── 5. Pill pop-in ── */
+@keyframes pillPopIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.hero-pill-in {
+  opacity: 0;
+  animation: pillPopIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ── Line 1 wrapper so words sit side-by-side ── */
+.hero-line-1 {
+  display: block;
+  white-space: nowrap;
+}

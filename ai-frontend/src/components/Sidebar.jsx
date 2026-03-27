@@ -1,33 +1,34 @@
 import { useState } from "react";
 import "./Sidebar.css";
 
-export default function Sidebar({ activeView, setActiveView }) {
+export default function Sidebar({ activeView, setActiveView, isDark, toggleDark }) {
   const [isExpanded, setIsExpanded] = useState(true);
 
   const menuItems = [
-    { id: "home", icon: "🏠", label: "Home" },
-    { id: "resume", icon: "📄", label: "Resume Analysis" },
-    { id: "cover-letter", icon: "✍️", label: "Cover Letter" },
-    { id: "interview", icon: "💬", label: "Interview Prep" },
-    { id: "salary", icon: "💰", label: "Salary Negotiation" },
-    { id: "jobs", icon: "🎯", label: "Job Search" },
-    { id: "chat", icon: "🤖", label: "AI Chat" }
+    { id: "home",         icon: "⌂", label: "Home"              },
+    { id: "resume",       icon: "≡", label: "Resume Analysis"   },
+    { id: "cover-letter", icon: "✉", label: "Cover Letter"      },
+    { id: "interview",    icon: "◉", label: "Interview Prep"    },
+    { id: "salary",       icon: "◈", label: "Salary Negotiation"},
+    { id: "jobs",         icon: "⊕", label: "Job Search"        },
+    { id: "chat",         icon: "▷", label: "AI Chat"           },
   ];
 
   const handleNewChat = () => {
     setActiveView("chat");
-    // Reset chat history if needed
-    window.dispatchEvent(new CustomEvent('newChat'));
+    window.dispatchEvent(new CustomEvent("newChat"));
   };
 
   return (
     <aside className={`sidebar ${isExpanded ? "expanded" : "collapsed"}`}>
+
+      {/* ── Header ── */}
       <div className="sidebar-header">
         <div className="logo">
-          <span className="logo-icon">✨</span>
+          <span className="logo-icon" />
           {isExpanded && <span className="logo-text">SKILLSYNC : AI</span>}
         </div>
-        <button 
+        <button
           className="toggle-btn"
           onClick={() => setIsExpanded(!isExpanded)}
           title={isExpanded ? "Collapse sidebar" : "Expand sidebar"}
@@ -36,7 +37,8 @@ export default function Sidebar({ activeView, setActiveView }) {
         </button>
       </div>
 
-      <button 
+      {/* ── New analysis ── */}
+      <button
         className="new-chat-btn"
         onClick={handleNewChat}
         title="Start a new analysis session"
@@ -45,6 +47,7 @@ export default function Sidebar({ activeView, setActiveView }) {
         {isExpanded && <span>New Analysis</span>}
       </button>
 
+      {/* ── Nav ── */}
       <nav className="sidebar-nav">
         {menuItems.map(item => (
           <button
@@ -53,24 +56,39 @@ export default function Sidebar({ activeView, setActiveView }) {
             onClick={() => setActiveView(item.id)}
             title={item.label}
           >
-            <span className="nav-icon">{item.icon}</span>
+            <span className="nav-icon nav-icon-text">{item.icon}</span>
             {isExpanded && <span className="nav-label">{item.label}</span>}
           </button>
         ))}
       </nav>
 
+      {/* ── Footer ── */}
       <div className="sidebar-footer">
+
+        {/* Dark / light toggle */}
+        <button
+          className="theme-toggle-btn"
+          onClick={toggleDark}
+          title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          <span className="theme-icon">{isDark ? "○" : "●"}</span>
+          {isExpanded && (
+            <span>{isDark ? "Light mode" : "Dark mode"}</span>
+          )}
+        </button>
+
+        {/* AI badge */}
         <div className="ai-badge">
-          <span className="ai-icon">⚡</span>
+          <span className="ai-dot" />
           {isExpanded && (
             <div>
-              <div className="ai-badge-title">Powered By</div>
-              <div className="ai-badge-text">ML Model & Advanced AI</div>
+              <div className="ai-badge-title">Powered by</div>
+              <div className="ai-badge-text">ML Model &amp; Advanced AI</div>
             </div>
           )}
         </div>
+
       </div>
     </aside>
   );
 }
-

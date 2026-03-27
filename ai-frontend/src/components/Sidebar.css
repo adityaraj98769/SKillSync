@@ -276,3 +276,37 @@
   .sidebar { width: 52px; }
   .main-content { margin-left: 52px !important; width: calc(100% - 52px) !important; }
 }
+
+.theme-toggle-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.6rem 0.75rem;
+  background: transparent;
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-tertiary);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--border-dark);
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.theme-icon {
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.sidebar.collapsed .theme-toggle-btn {
+  padding: 0.6rem;
+  justify-content: center;
+}
