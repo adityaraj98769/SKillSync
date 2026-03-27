@@ -25,7 +25,7 @@ export default function Sidebar({ activeView, setActiveView }) {
       <div className="sidebar-header">
         <div className="logo">
           <span className="logo-icon">✨</span>
-          {isExpanded && <span className="logo-text">JobAI Analytics</span>}
+          {isExpanded && <span className="logo-text">SKILLSYNC : AI</span>}
         </div>
         <button 
           className="toggle-btn"
@@ -65,7 +65,7 @@ export default function Sidebar({ activeView, setActiveView }) {
           {isExpanded && (
             <div>
               <div className="ai-badge-title">Powered By</div>
-              <div className="ai-badge-text">OpenAI GPT-4 & Advanced AI</div>
+              <div className="ai-badge-text">ML Model & Advanced AI</div>
             </div>
           )}
         </div>
